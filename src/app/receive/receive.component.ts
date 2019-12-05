@@ -48,7 +48,7 @@ export class ReceiveComponent implements OnInit {
   // MATERIAL TABLE SETUP
   dataSource;
   //   @ViewChild(MatSortModule, { static: false }) sort: MatSortModule;
-  @ViewChild("itemId") idInputField;
+  @ViewChild("itemId", { static: true }) idInputField;
   displayedColumns: string[] = [
     "item",
     "id",
