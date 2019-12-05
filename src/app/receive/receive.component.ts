@@ -48,7 +48,7 @@ export class ReceiveComponent implements OnInit {
   // MATERIAL TABLE SETUP
   dataSource;
   //   @ViewChild(MatSortModule, { static: false }) sort: MatSortModule;
-  @ViewChild("itemId") itemId;
+  @ViewChild("itemId") idInputField;
   displayedColumns: string[] = [
     "item",
     "id",
@@ -60,7 +60,9 @@ export class ReceiveComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.products);
+	this.dataSource = new MatTableDataSource(this.products);
+	this.idInputField.nativeElement.focus();
+
   }
 
   applyFilter(filterValue: string) {
@@ -69,6 +71,7 @@ export class ReceiveComponent implements OnInit {
 
   handleScan(id) {
 	var indexOfItem = null;
+	this.idInputField.nativeElement.focus();
 	this.products.forEach((prod, index) => {
 		if(prod.id === id) {
 			indexOfItem = index;
