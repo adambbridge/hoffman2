@@ -11,7 +11,42 @@ body {
 
 .container {
   margin: auto;
-  width: 60%;
-  margin-top: 10px;
-  min-width: 800px;
+    //   width: 60%;
+    //   margin-top: 10px;
+    //   min-width: 800px;
+    width: 600px;
+}
+
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.bg-red {
+    background: #f9cfd5;
+}
+.bg-green {
+    background:#e4efd9;
+    td.mat-cell {
+        color: #999;
+    }
+}
+
+mat-card.mat-card {
+    padding: 35px;
+}
+// .mat-drawer-container {
+    
+//     background: #e5e6e8;
+ 
+// }
+
+.mat-toolbar {
+    background: #d9dcde;
+    // color:#1181CB;
+}
+
+button.mat-stroked-button {
+    background: #f5f4f4;
 }

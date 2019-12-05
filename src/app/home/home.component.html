@@ -1,21 +1,21 @@
 <mat-card class="example-card">
-	<mat-card-header>
-		<mat-card-title>What would you like to do?</mat-card-title>
-	</mat-card-header>
+
+		<mat-card-title *ngIf="!searchBox">  What would you like to do?</mat-card-title>
+		<mat-card-title *ngIf="searchBox">Enter Order ID</mat-card-title>
+	
 
 	<mat-card-content>
 		<div class="example-button-row" *ngIf="!searchBox">
-			<button style="width:200px;margin-right:10px;height:50px;" mat-flat-button color="primary"
+			<button style="width:200px;margin-right:10px;height:50px;" mat-stroked-button
 				(click)="searchBox = true">Ship</button>
-			<button style="width:200px;height:50px;" mat-flat-button color="accent"
-				(click)="searchBox = true">Receive</button>
+			<button style="width:200px;height:50px;" mat-stroked-button (click)="searchBox = true">Receive</button>
 		</div>
 
 		<form class="example-form" *ngIf="searchBox">
-			<mat-form-field appearance="outline">
+			<mat-form-field >
 				<input matInput placeholder="Enter order #">
 			</mat-form-field>
-			<button style="margin-left:10px;height:50px;" mat-flat-button color="primary" routerLink="/receive" >Search</button>
+			<button style="margin-left:10px;" mat-stroked-button routerLink="/receive">Search</button>
 		</form>
 
 	</mat-card-content>

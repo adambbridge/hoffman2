@@ -1,5 +1,108 @@
-<p>
-  receive works!
-</p>
+<div>
+	<h3>Order #: 001</h3>
 
-<!-- <app-order-table></app-order-table> -->
+	<div class="d-flex justify-content-between align-items-center">
+
+		<form class="example-form">
+			<mat-form-field style="width:400px;">
+				<!-- <input #itemId autofocus matInput placeholder="Scan or Enter Item ID"
+					(keyup.enter)="handleScan(itemId.value)" (blur)="handleScan(itemId.value); newHero.value='' " > -->
+				<input #itemId autofocus matInput placeholder="Scan or Enter Item ID"
+					(keyup.enter)="handleScan(itemId.value); itemId.value = ''" autocomplete="off">
+
+					
+			</mat-form-field>
+
+			<button type="button" mat-stroked-button (click)="handleScan(itemId.value); itemId.value = '' " style="margin-left:10px;width:190px;"
+				mat-flat-button >Input</button>
+			
+		</form>
+
+	</div>
+
+	<!-- ========================
+            TABLE 
+        ==============================-->
+	<div>
+		<div class="table-container " style="margin-top: 20px;">
+			<table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows style="width:100%;">
+
+				<ng-container matColumnDef="item">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header style="width:200px;">
+						Item
+					</th>
+					<td mat-cell *matCellDef="let element">
+						{{ element.name }}
+					</td>
+					<td mat-footer-cell *matFooterCellDef></td>
+				</ng-container>
+
+				<ng-container matColumnDef="id">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header style="width:50px;">
+						Id
+					</th>
+					<td mat-cell *matCellDef="let element">
+						{{ element.id }}
+					</td>
+					<td mat-footer-cell *matFooterCellDef></td>
+				</ng-container>
+
+				<ng-container matColumnDef="expected">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>
+						Expected
+					</th>
+					<td mat-cell *matCellDef="let element">
+						{{ element.quantity }}
+					</td>
+					<td mat-footer-cell *matFooterCellDef></td>
+				</ng-container>
+
+				<ng-container matColumnDef="received">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>
+						Received
+					</th>
+					<td mat-cell *matCellDef="let element">
+						{{ element.received }}
+					</td>
+					<td mat-footer-cell *matFooterCellDef></td>
+				</ng-container>
+
+				<ng-container matColumnDef="remaining">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>
+						Remaining
+					</th>
+					<td mat-cell *matCellDef="let element">
+						<span [ngClass]="{'green':(element.remaining === 0), 'red':(element.remaining < 0)}">
+							<strong>{{ element.remaining }}</strong>
+						</span>
+
+					</td>
+					<td mat-footer-cell *matFooterCellDef></td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="md-elevation-z5">
+				</tr>
+				<tr mat-row *matRowDef="let element; columns: displayedColumns"
+					[ngClass]="{'bg-green':(element.remaining === 0), 'bg-red':(element.remaining < 0)}">
+				</tr>
+				<!-- <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr> -->
+			</table>
+		</div>
+	</div>
+
+	<form class="example-form" style="margin-top: 20px;">
+		<!-- <span style="width:400px;"> -->
+			<!-- <input #itemId autofocus matInput placeholder="Scan or Enter Item ID"
+						(keyup.enter)="handleScan(itemId.value)" (blur)="handleScan(itemId.value); newHero.value='' " > -->
+			<!-- <input #itemId autofocus matInput placeholder="Scan or Enter Item ID"
+				(keyup.enter)="handleScan(itemId.value); itemId.value = ''" autocomplete="off"> -->
+	
+			<!-- </span> -->
+	
+		<button type="button" mat-stroked-button (click)="addNotes()"
+			style="width:49%;">Add Notes</button>
+
+			<button type="button" mat-stroked-button (click)="submitOrder()" style="margin-left:10px;width:49%;"
+				m>Submit</button>
+	
+	</form>

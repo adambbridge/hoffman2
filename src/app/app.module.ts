@@ -22,9 +22,11 @@ import {
   MatFormFieldModule,
   MatInputModule
 } from "@angular/material";
+
 import { ToolbarSidenavComponent } from "./toolbar-sidenav/toolbar-sidenav.component";
 import { LayoutModule } from "@angular/cdk/layout";
 import { OrderTableComponent } from "./order-table/order-table.component";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -50,8 +52,9 @@ import { OrderTableComponent } from "./order-table/order-table.component";
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-	MatFormFieldModule,
-	MatInputModule
+    MatFormFieldModule,
+	MatInputModule,
+	FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
