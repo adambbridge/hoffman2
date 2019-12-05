@@ -8,20 +8,18 @@ import { HomeComponent } from "./home/home.component";
 import { ReceiveComponent } from "./receive/receive.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import {
-  MatToolbarModule,
-  MatIconModule,
-  MatCardModule,
-  MatButtonModule,
-  MatProgressSpinnerModule,
-  MatSidenavModule,
-  MatListModule,
-  MatTableModule,
-  MatPaginatorModule,
-  MatSortModule,
-  MatFormFieldModule,
-  MatInputModule
-} from "@angular/material";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatListModule } from "@angular/material/list";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatSortModule } from "@angular/material/sort";
+import { MatTableModule } from "@angular/material/table";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 import { ToolbarSidenavComponent } from "./toolbar-sidenav/toolbar-sidenav.component";
 import { LayoutModule } from "@angular/cdk/layout";
