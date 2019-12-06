@@ -83,7 +83,7 @@ export class ReceiveComponent implements OnInit {
 	if(indexOfItem === null) {
 		alert('no item with that id')
 	} else {
-		this.selectedRowIndex = indexOfItem + 1; // animate on scan
+		this.setThenRemove(indexOfItem);
 		let prod = this.products[indexOfItem];
 		this.products[indexOfItem].received += 1;
 		this.products[indexOfItem].remaining -= 1;
@@ -91,6 +91,13 @@ export class ReceiveComponent implements OnInit {
 			alert("Already received ordered quanity of " + prod.name);
 		}
 	}
+  }
+
+  setThenRemove(indexOfItem) {
+	this.selectedRowIndex = indexOfItem + 1; // animate on scan
+	setTimeout(() => {
+		this.selectedRowIndex = -1;
+	}, 200)
   }
 
   submitOrder() {
