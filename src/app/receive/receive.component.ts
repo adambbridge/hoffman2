@@ -9,7 +9,9 @@ import { MatSortModule } from "@angular/material/sort";
   styleUrls: ["./receive.component.scss"]
 })
 export class ReceiveComponent implements OnInit {
-  products = [
+	selectedRowIndex: number = -1;
+
+	products = [
     {
       id: "1",
       name: "PVC Pipe",
@@ -81,6 +83,7 @@ export class ReceiveComponent implements OnInit {
 	if(indexOfItem === null) {
 		alert('no item with that id')
 	} else {
+		this.selectedRowIndex = indexOfItem + 1; // animate on scan
 		let prod = this.products[indexOfItem];
 		this.products[indexOfItem].received += 1;
 		this.products[indexOfItem].remaining -= 1;
